@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <h1>Event Manager</h1>
+      </header>
+
+      <section class="card">
+        <h2 id="formTitle">Create Event</h2>
+        <input id="title" placeholder="Title" />
+        <input id="description" placeholder="Description" />
+        <input id="date" type="date" />
+        <input id="time" type="time" />
+        <input id="location" placeholder="Location" />
+        <input id="category" placeholder="Category" />
+        <input id="capacity" type="number" placeholder="Capacity" />
+        <div style="display: flex; gap: 10px">
+          <button onclick="handleSaveEvent()">Save Event</button>
+          <button onclick="resetForm()" style="background: #333">Reset</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Search</h2>
+        <input
+          id="searchInput"
+          placeholder="Search title..."
+          oninput="loadEvents()"
+        />
+        <input
+          id="categoryFilter"
+          placeholder="Filter by category..."
+          oninput="loadEvents()"
+        />
+      </section>
+
+      <section class="card">
+        <h2>Events</h2>
+        <div id="events"></div>
+      </section>
+    </div>
+
+    <div id="registerModal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Register</h2>
+        <input id="regName" placeholder="Full Name" />
+        <input id="regEmail" type="email" placeholder="Email" />
+        <input id="regPhone" type="tel" placeholder="Phone" />
+        <button onclick="submitRegistration()">Submit</button>
+        <button onclick="closeModal()">Close</button>
+      </div>
+    </div>
+
+    <div id="detailsModal" class="modal hidden">
+      <div class="modal-content">
+        <div id="eventDetails"></div>
+        <button onclick="closeDetails()">Close</button>
+      </div>
+    </div>
+
+    <div id="attendeesModal" class="modal hidden">
+      <div class="modal-content">
+        <div id="attendeesList"></div>
+        <button onclick="closeAttendees()">Close</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
